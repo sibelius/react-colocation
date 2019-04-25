@@ -1,0 +1,123 @@
+import { Head, Image } from 'mdx-deck'
+import Code from 'mdx-code';
+import { CodeSurfer } from "mdx-deck-code-surfer";
+
+import { Cover } from './Cover';
+import { Intro } from './Intro';
+import { CustomImage } from './CustomImage';
+import { DemoSlide} from './DemoSlide';
+import { Feedback } from './Feedback';
+import { Thanks } from './Thanks';
+import { MyImage } from './MyImage';
+
+export { default as theme } from './theme'
+
+<Head>
+  <title>React Colocation Evolution</title>
+</Head>
+
+<Cover />
+---
+<Intro />
+---
+<MyImage src='/img/colocation.png' width={600} />
+---
+<MyImage src='/img/view.png' width={400} />
+---
+<MyImage src='/img/domViewTree.png' width={300} />
+---
+<MyImage src='/img/reactViewTree.png' width={300} />
+---
+<MyImage src='/img/state.png' width={400} />
+---
+<CodeSurfer
+  title="State Colocation"
+  code={`
+    const Post = () => {
+       const [isLoading, setIsLoading] = useState(false);
+       /* render post, etc */
+    }
+  `}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+/>
+---
+<MyImage src='/img/style.png' width={400} />
+---
+<CodeSurfer
+  title="Style Colocation"
+  code={`
+    const Text = styled.span\`
+       font-size: 16px;
+       color: red;
+    \`
+  `}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+/>
+---
+<MyImage src='/img/routes.png' width={400} />
+---
+<CodeSurfer
+  title="Route/Navigation Colocation"
+  code={`
+    class HomeScreen extends React.Component {
+      static navigationOptions = {
+        title: 'Home',
+      };
+      /* render function, etc */
+    }
+  `}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Define navigation configuration" },
+    { notes: "You can define nested routes, so you can compose them as subapps" }
+  ]}
+/>
+---
+<MyImage src='/img/data.png' width={600} />
+---
+<MyImage src='/img/dataColocation.png' width={600} />
+---
+<CodeSurfer
+  title="Relay Data Colocation"
+  code={require('!raw-loader!./RelayFragment.js')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Define which data your component needs" },
+  ]}
+/>
+---
+<MyImage src='/img/effects.png' width={600} />
+---
+<CodeSurfer
+  title="Effects Colocation"
+  code={`
+    useEffect(() => {
+      i18n.changeLanguage(lang);
+     }, [lang]);
+  `}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+/>
+---
+<MyImage src='/img/colocation.png' width={600} />
+---
+# What's is missing?
+
+- Event Handling
+- Animations
+- Tests
+- Documentation
+- ?
+---
+<Thanks />
+---
+<Feedback />
